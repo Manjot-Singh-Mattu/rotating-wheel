@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+        yellow 0% 25%,
+        blue 25% 50%,
+        green 50% 75%,
+        red 75% 100%
+    );
+    position: relative;
+    transition: all 0.5s;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: black; /* same as body background */
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.circle:hover {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
